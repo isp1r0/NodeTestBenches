@@ -6,9 +6,9 @@ module.exports = async function route(fastify, options) {
   });
 
   fastify.addHook('onSend', (request, reply, payload, done) => {
-    if(request.raw.url.indexOf('/xss/hookSafe') === 0) {
+    if(request.raw.url.indexOf('/xss/hookSafe') !== -1) {
       done(null, 'made safe');
-    } else if (request.raw.url.indexOf('/xss/hookUnsafe') === 0) {
+    } else if (request.raw.url.indexOf('/xss/hookUnsafe') !== -1) {
       done(null, request.query.input);
     } else {
       done(null, payload);
