@@ -1,5 +1,5 @@
 {
-  "name": "@contrast/express-test-bench",
+  "name": "@contrast/webpack-express-test-bench",
   "private": true,
   "version": "3.3.1",
   "description": "Intentionally vulnerable Express application",
@@ -15,7 +15,9 @@
   "homepage": "https://github.com/Contrast-Security-OSS/NodeTestBenches/tree/master/express#readme",
   "main": "index.js",
   "scripts": {
-    "contrast": "DEBUG=contrast:* node-contrast index.js",
+    "build": "npm run clean && webpack --progress",
+    "clean": "rimraf dist/",
+    "contrast": "DEBUG=contrast:* node-contrast dist/server.js",
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
@@ -38,6 +40,7 @@
   },
   "devDependencies": {
     "@contrast/eslint-config": "^2.0.0",
+    "copy-webpack-plugin": "^5.1.1",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-mocha": "^6.3.0",
@@ -46,7 +49,11 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
     "nodemon": "^2.0.2",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
   },
   "husky": {
     "hooks": {
