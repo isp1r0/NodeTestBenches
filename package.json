@@ -22,5 +22,17 @@
   },
   "eslintConfig": {
     "extends": "@contrast"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix",
+    "*.json": "prettier --write"
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }
