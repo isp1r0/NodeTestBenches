@@ -17,7 +17,7 @@
   "scripts": {
     "build": "npm run clean && webpack --progress",
     "clean": "rimraf dist/",
-    "contrast": "DEBUG=contrast:* node-contrast dist/server.js",
+    "contrast": "DEBUG=contrast:* node-contrast dist/index.js",
     "dev": "nodemon index.js",
     "start": "node index.js"
   },
